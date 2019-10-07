@@ -7,4 +7,7 @@ app.get('/', (req, res) => {
   res.send({ test: 'Connected' })
 })
 
-app.listen(3000);
+// Dynamic Port for Heroku
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT);
