@@ -13,7 +13,9 @@ passport
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
+      const isRegistered = await User.findOne({ googleID: profile.id })
+      if (isRegistered) return
       new User({ googleID: profile.id }).save();
     }
   ))
