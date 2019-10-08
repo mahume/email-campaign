@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+// This must go before Passport bc Passport uses the Model Class
+require('./models/User');
 // Shorter syntax for running a file. No need to extract and use as variable
 require('./services/passport');
-require('./models/User');
 
 
 mongoose.connect(process.env.MONGODB_URI);

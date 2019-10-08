@@ -1,6 +1,10 @@
 require('dotenv').config();
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+// Model Class "User" avoids issues with testing
+const mongoose = require('mongoose');
+const User = mongoose.model('users');
+
 
 passport
   .use(new GoogleStrategy(
@@ -10,8 +14,6 @@ passport
       callbackURL: "/auth/google/callback",
     },
     (accessToken, refreshToken, profile, done) => {
-      console.log(accessToken);
-      console.log(refreshToken);
-      console.log(profile);
+      new User({ googleID: profile.id }).save();
     }
   ))
