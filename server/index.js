@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 
 // Shorter syntax for running a file. No need to extract and use as variable
 require('./services/passport');
+require('./models/User');
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
