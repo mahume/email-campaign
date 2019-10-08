@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 // This must go before Passport bc Passport uses the Model Class
 require('./models/User');
@@ -11,6 +13,16 @@ mongoose.connect(process.env.MONGODB_URI);
 
 // New Running Express Application
 const app = express();
+
+// Tell Express to use cookies
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [process.env.COOKIE_KEY],
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Exported as function from file. Called with App
 require('./routes/authRoutes')(app);
