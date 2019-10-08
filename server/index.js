@@ -3,11 +3,17 @@ const express = require('express');
 // New Running Express Application
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send({ test: 'Connected' })
-})
+// Passport.js
+const passport = require('passport');
+// Setup Google Strategy for Passport.js
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+passport.use(new GoogleStrategy());
+
+
+
 
 // Dynamic Port for Heroku
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT);
+
