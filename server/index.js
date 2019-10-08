@@ -20,8 +20,14 @@ passport
     }
   ))
 
+// Route to start OAuth flow
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['profile', 'email']
+}));
+
+
 // Dynamic Port for Heroku
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT);
 
