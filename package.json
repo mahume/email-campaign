@@ -24,7 +24,6 @@
 	"homepage": "https://github.com/mahume/email-campaign#readme",
 	"dependencies": {
 		"cookie-session": "^1.3.3",
-		"dotenv": "^8.1.0",
 		"express": "^4.17.1",
 		"mongoose": "^5.7.3",
 		"passport": "^0.4.0",
