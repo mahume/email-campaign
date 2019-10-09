@@ -28,6 +28,6 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 
 // Dynamic Port for Heroku
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT);
