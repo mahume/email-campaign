@@ -1,14 +1,13 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-const keys = require('./server/config/keys');
+const keys = require('./config/keys');
 
 // This must go before Passport bc Passport uses the Model Class
-require('./server/models/User');
+require('./models/User');
 // Shorter syntax for running a file. No need to extract and use as variable
-require('./server/services/passport');
+require('./services/passport');
 
 mongoose.connect(keys.mongodbURI);
 
@@ -27,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Exported as function from file. Called with App
-require('./server/routes/authRoutes')(app);
+require('./routes/authRoutes')(app);
 
 // Dynamic Port for Heroku
 const PORT = process.env.PORT || 8080;
