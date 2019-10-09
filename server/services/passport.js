@@ -1,6 +1,7 @@
 require('dotenv').config();
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const keys = require('../config/keys');
 
 // Model Class "User" avoids issues with testing
 const mongoose = require('mongoose');
@@ -22,8 +23,8 @@ passport.deserializeUser((id, done) => {
 passport
   .use(new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientID: keys.googleClientID,
+      clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {

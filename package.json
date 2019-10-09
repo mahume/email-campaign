@@ -1,15 +1,15 @@
 {
 	"name": "email-campaign",
 	"version": "1.0.0",
-	"description": "## About",
-	"main": "server/index.js",
+	"description": "",
+	"main": "index.js",
 	"engines": {
 		"node": "8.1.1",
 		"npm": "5.0.3"
 	},
 	"scripts": {
-		"start": "node server/index.js",
-		"dev": "nodemon server/index.js"
+		"start": "node index.js",
+		"dev": "nodemon index.js"
 	},
 	"repository": {
 		"type": "git",
