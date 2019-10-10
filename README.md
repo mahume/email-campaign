@@ -8,6 +8,7 @@ Send out an email campaign.
 
 - Client-side:
   - React
+  - React Router
   - Redux
 - Server-side:
   - Node
