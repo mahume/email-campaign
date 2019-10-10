@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Navbar = styled.nav`
   width: 100%;
-  height: 10vh;
+  height: 8vh;
   background-color: salmon;
   padding: 0 20px;
 
