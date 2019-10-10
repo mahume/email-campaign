@@ -29,12 +29,12 @@ passport
     },
     async (accessToken, refreshToken, profile, done) => {
       const isRegistered = await User.findOne({ googleID: profile.id })
+      
       if (isRegistered) {
-        done(null, isRegistered);
-      } else {
-        new User({ googleID: profile.id })
-          .save()
-          .then(user => done(null, user));
+        return done(null, isRegistered);
       }
+      
+      const user = await new User({ googleID: profile.id }).save()
+      done(null, user);
     }
-  ))
+  ));
