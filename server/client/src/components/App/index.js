@@ -5,9 +5,10 @@ import * as actions from '../../actions';
 import { GlobalStyle } from './styles';
 
 import Header from '../Header/index';
+import Landing from '../Landing/index';
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
-const Landing = () => <h2>Landing</h2>
+
 
 class App extends Component {
   

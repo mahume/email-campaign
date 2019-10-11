@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Navbar = styled.nav`
   width: 100%;
@@ -12,9 +13,11 @@ export const Navbar = styled.nav`
   justify-content: space-between;
 `
 
-export const Logo = styled.a`
+export const Logo = styled(Link)`
   color: white;
   font-family: sans-serif;
+  text-decoration: none;
+  font-size: 1.5em;
 `
 
 export const NavList = styled.ul`

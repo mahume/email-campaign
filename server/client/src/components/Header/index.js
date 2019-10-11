@@ -16,7 +16,11 @@ class Header extends Component {
   render() {
     return (
       <Navbar>
-          <Logo>Email-campaign</Logo>
+          <Logo 
+            to={this.props.auth ? '/surveys' : '/'}
+          >
+            Email-campaign
+          </Logo>
           <NavList>
             <li>
               {this.renderContent()}
