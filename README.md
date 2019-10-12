@@ -10,6 +10,7 @@ Send out an email campaign.
   - React
   - React Router
   - Redux
+  - Redux Thunk
 - Server-side:
   - Node
   - Express
@@ -21,6 +22,7 @@ Send out an email campaign.
   - Passport.js
 - Payment
   - Stripe
+- Axios
 
 ## Author
 

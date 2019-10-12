@@ -2,14 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-const keys = require('./config/keys');
+// const keys = require('./config/keys');
+const { mongodbURI, cookieKey } = require('./config/keys');
 
 // This must go before Passport bc Passport uses the Model Class
 require('./models/User');
 // Shorter syntax for running a file. No need to extract and use as variable
 require('./services/passport');
 
-mongoose.connect(keys.mongodbURI);
+mongoose.connect(mongodbURI);
 
 // New Running Express Application
 const app = express();
@@ -19,7 +20,7 @@ const app = express();
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey],
+    keys: [cookieKey],
   })
 );
 app.use(passport.initialize());
