@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import Payments from "../Payments/index";
 import { Navbar, Logo, NavList, NavLink } from './styles';
 
 class Header extends Component {
@@ -10,7 +11,10 @@ class Header extends Component {
       case false:
         return <NavLink href="/auth/google">Login With Google</NavLink>
       default:
-        return <NavLink href="/api/logout">Logout</NavLink>
+        return [
+          <li><Payments /></li>,
+          <NavLink href="/api/logout">Logout</NavLink>
+        ];
     }
   }
   render() {
