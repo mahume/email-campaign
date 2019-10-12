@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 // const keys = require('./config/keys');
@@ -16,6 +17,8 @@ mongoose.connect(mongodbURI);
 const app = express();
 
 // MIDDLEWARE
+// Parses requests and assigns to req.body
+app.use(bodyParser.json());
 // Tell Express to use cookies
 app.use(
   cookieSession({
@@ -28,6 +31,7 @@ app.use(passport.session());
 
 // Exported as function from file. Called with App
 require('./routes/authRoutes')(app);
+require('./routes/stripeRoutes')(app);
 
 // Dynamic Port for Heroku
 const PORT = process.env.PORT || 8080;
