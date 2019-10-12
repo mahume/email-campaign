@@ -33,6 +33,17 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/stripeRoutes')(app);
 
+// Only run on Heroku
+if (process.env.NODE_ENV === 'production') {
+  // Express serves production assets
+  app.use(express.static('client/build'));
+  // Express will serve index.html if route isn't recognized
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
+
 // Dynamic Port for Heroku
 const PORT = process.env.PORT || 8080;
 
