@@ -12,8 +12,8 @@ class Header extends Component {
         return <NavLink href="/auth/google">Login With Google</NavLink>
       default:
         return [
-          <li><Payments /></li>,
-          <NavLink href="/api/logout">Logout</NavLink>
+          <NavLink key="1"><Payments /></NavLink>,
+          <NavLink key="2" href="/api/logout">Logout</NavLink>
         ];
     }
   }
