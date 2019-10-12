@@ -28,6 +28,7 @@ app.use(passport.session());
 
 // Exported as function from file. Called with App
 require('./routes/authRoutes')(app);
+require('./routes/stripeRoutes')(app);
 
 // Dynamic Port for Heroku
 const PORT = process.env.PORT || 8080;
