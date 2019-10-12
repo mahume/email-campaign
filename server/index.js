@@ -8,6 +8,7 @@ const { mongodbURI, cookieKey } = require('./config/keys');
 
 // This must go before Passport bc Passport uses the Model Class
 require('./models/User');
+require('./models/Survey');
 // Shorter syntax for running a file. No need to extract and use as variable
 require('./services/passport');
 
