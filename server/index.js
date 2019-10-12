@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 // const keys = require('./config/keys');
@@ -16,6 +17,8 @@ mongoose.connect(mongodbURI);
 const app = express();
 
 // MIDDLEWARE
+// Parses requests and assigns to req.body
+app.use(bodyParser.json());
 // Tell Express to use cookies
 app.use(
   cookieSession({
