@@ -13,7 +13,8 @@ class Header extends Component {
       default:
         return [
           <NavLink key="1"><Payments /></NavLink>,
-          <NavLink key="2" href="/api/logout">Logout</NavLink>
+          <NavLink key="2">Credits: {this.props.auth.credits}</NavLink>,
+          <NavLink key="3" href="/api/logout">Logout</NavLink>
         ];
     }
   }
