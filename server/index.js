@@ -33,6 +33,7 @@ app.use(passport.session());
 // Exported as function from file. Called with App
 require('./routes/authRoutes')(app);
 require('./routes/stripeRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 // Only run on Heroku
 if (process.env.NODE_ENV === 'production') {
