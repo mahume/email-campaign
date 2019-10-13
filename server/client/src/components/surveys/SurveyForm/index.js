@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { reduxForm, Field } from 'redux-form';
 import SurveyField from '../SurveyField/index';
 
 const FIELDS = [
-  { label: 'Survey Title', name: 'title' },
-  { label: 'Subject Line', name: 'subject' },
-  { label: 'Email Body', name: 'body' },
-  { label: 'Recipient List', name: 'emails' },
+  { label: 'Survey Title', name: 'title', error: 'You must provide a title.' },
+  { label: 'Subject Line', name: 'subject', error: 'You must provide a subject line.' },
+  { label: 'Email Body', name: 'body', error: 'You must provide an email body.' },
+  { label: 'Recipient List', name: 'emails', error: 'You must provide a recipient list.' },
 ]
 class SurveyForm extends Component {
   renderFields() {
@@ -25,12 +26,26 @@ class SurveyForm extends Component {
     return (
       <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
         {this.renderFields()}
-        <button type="submit">Submit</button>
+        <Link to="/surveys">Cancel</Link>
+        <button type="submit">Next</button>
       </form>
     )
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  FIELDS.forEach(({ name, error }) => {
+    if (!values[name]) {
+      errors[name] = error;
+    }
+  })
+
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'surveyForm',
 })(SurveyForm);
