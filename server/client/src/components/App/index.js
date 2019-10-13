@@ -6,8 +6,8 @@ import { GlobalStyle } from './styles';
 
 import Header from '../Header/index';
 import Landing from '../Landing/index';
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
+import Dashboard from '../Dashboard/index';
+import SurveyNew from '../surveys/SurveyNew/index';
 
 
 class App extends Component {
