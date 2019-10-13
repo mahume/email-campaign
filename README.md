@@ -11,6 +11,7 @@ Send out an email campaign.
   - React Router
   - Redux
   - Redux Thunk
+  - Redux Form
 - Server-side:
   - Node
   - Express
