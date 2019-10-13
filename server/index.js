@@ -8,6 +8,7 @@ const { mongodbURI, cookieKey } = require('./config/keys');
 
 // This must go before Passport bc Passport uses the Model Class
 require('./models/User');
+require('./models/Survey');
 // Shorter syntax for running a file. No need to extract and use as variable
 require('./services/passport');
 
@@ -32,6 +33,7 @@ app.use(passport.session());
 // Exported as function from file. Called with App
 require('./routes/authRoutes')(app);
 require('./routes/stripeRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 // Only run on Heroku
 if (process.env.NODE_ENV === 'production') {
