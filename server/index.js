@@ -12,6 +12,7 @@ require('./models/Survey');
 // Shorter syntax for running a file. No need to extract and use as variable
 require('./services/passport');
 
+mongoose.Promise = global.Promise;
 mongoose.connect(mongodbURI);
 
 // New Running Express Application
